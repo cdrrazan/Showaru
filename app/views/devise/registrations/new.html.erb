@@ -1,9 +1,9 @@
-<section class="vh-100">
+<section class="vh-100 devise-form">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-xl-4">
         <div class="mb-2 w-25 image-center">
-          <%= image_tag 'avatar.png', class: 'img-fluid', alt: 'Sample image' %>
+          <%= link_to image_tag('avatar.png', class: 'img-fluid', alt: 'Sample image'), root_path %>
         </div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <div class="divider d-flex align-items-center my-4">
@@ -43,31 +43,3 @@
     </div>
   </div>
 </section>
-
-<style>
-    .image-center {
-        margin: auto;
-    }
-
-    .img-fluid {
-        border-radius: 50%;
-    }
-
-    .divider:after,
-    .divider:before {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: #eee;
-    }
-
-    .h-custom {
-        height: calc(100% - 73px);
-    }
-
-    @media (max-width: 450px) {
-        .h-custom {
-            height: 100%;
-        }
-    }
-</style>

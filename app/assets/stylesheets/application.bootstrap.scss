@@ -1,2 +1,31 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+/* === Devise Custom Styles === */
+.devise-form {
+  .image-center {
+    margin: auto;
+  }
+
+  .img-fluid {
+    border-radius: 50%;
+  }
+
+  .divider:after,
+  .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+
+  .h-custom {
+    height: calc(100% - 73px);
+  }
+
+  @media (max-width: 450px) {
+    .h-custom {
+      height: 100%;
+    }
+  }
+}
