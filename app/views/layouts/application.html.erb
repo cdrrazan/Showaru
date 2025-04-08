@@ -12,42 +12,31 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= favicon_link_tag 'img/favicon.png' %>
-  <%= favicon_link_tag 'img/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  <!-- TODO - Fix these images -->
+  <%#= favicon_link_tag 'img/favicon.png' %>
+  <%#= favicon_link_tag 'img/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <% if controller_name == 'homes' && !user_signed_in? %>
-    <%= render partial: 'layouts/shared/marketing/assets' %>
-  <% else %>
-    <%# Include application.css if you have app-specific styles %>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-    <%# Include application.js for Rails-specific JS (e.g., Turbo, Stimulus) %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= render partial: 'layouts/shared/app/assets' %>
-  <% end %>
+  <%# Include application.css if you have app-specific styles %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%# Include application.js for Rails-specific JS (e.g., Turbo, Stimulus) %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= render partial: 'layouts/shared/app/assets' %>
 </head>
 
 <%# Use content_for to set body class from views %>
 <body class="<%= content_for?(:body_class) ? yield(:body_class) : '' %>">
 
 <% if !user_signed_in? %>
-  <% if controller_name == "homes" %>
-    <%= render partial: 'layouts/shared/marketing/header' %>
-  <% end %>
-
   <main class="main">
     <%# Flash messages for notices/alerts %>
     <%= render partial: 'layouts/shared/flash' %>
     <%= yield %><%# Renders the content from the specific view file %>
-  </main>
-  <% if controller_name == "homes" %>
-    <%= render partial: 'layouts/shared/marketing/footer' %>
-  <% else %>
     <%= render partial: 'layouts/shared/app/footer' %>
-  <% end %>
+  </main>
 <% else %>
   <%# Render the sidebar and main content for signed-in users %>
   <div id="app">
@@ -65,7 +54,6 @@
       <%= render partial: 'layouts/shared/app/footer' %>
     </div>
   </div>
-
 <% end %>
 
 </body>
