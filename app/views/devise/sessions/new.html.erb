@@ -10,6 +10,8 @@
             <h3 class="text-center fw-bold mx-3 mb-0">Sign In</h3>
           </div>
 
+          <%= render "devise/shared/error_messages", resource: resource %>
+
           <!-- Email input -->
           <div class="form-outline mb-4">
             <%= f.label :email, 'Email address', class: 'form-label' %>
