@@ -21,13 +21,12 @@
 
   <% if controller_name == 'homes' && !user_signed_in? %>
     <%= render partial: 'layouts/shared/marketing/assets' %>
-  <% elsif user_signed_in? %>
-    <%= render partial: 'layouts/shared/app/assets' %>
   <% else %>
     <%# Include application.css if you have app-specific styles %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%# Include application.js for Rails-specific JS (e.g., Turbo, Stimulus) %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= render partial: 'layouts/shared/app/assets' %>
   <% end %>
 </head>
 
@@ -46,6 +45,8 @@
   </main>
   <% if controller_name == "homes" %>
     <%= render partial: 'layouts/shared/marketing/footer' %>
+  <% else %>
+    <%= render partial: 'layouts/shared/app/footer' %>
   <% end %>
 <% else %>
   <%# Render the sidebar and main content for signed-in users %>

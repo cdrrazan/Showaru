@@ -1,14 +1,16 @@
-<footer>
-  <div class="footer clearfix mb-0 text-muted">
-    <div class="float-start">
-      <p>2025 &copy; Showaru</p>
+<% if user_signed_in? %>
+  <footer>
+    <div class="footer clearfix mb-0 text-muted">
+      <div class="float-start">
+        <p>2025 &copy; Showaru</p>
+      </div>
+      <div class="float-end">
+        <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
+          by <a href="https://rsynk.com">RSYNK</a></p>
+      </div>
     </div>
-    <div class="float-end">
-      <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-        by <a href="https://rsynk.com">RSYNK</a></p>
-    </div>
-  </div>
-</footer>
+  </footer>
+<% end %>
 
 <%= javascript_include_tag "main/static/js/components/dark.js", "data-turbo-track": "reload", defer: true %>
 <%= javascript_include_tag "main/extensions/perfect-scrollbar/perfect-scrollbar.min.js", "data-turbo-track": "reload", defer: true %>
