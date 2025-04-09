@@ -1,3 +1,5 @@
+<!-- / Content -->
+
 <div class="container-xxl">
   <div class="authentication-wrapper authentication-basic container-p-y">
     <div class="authentication-inner">
@@ -11,7 +13,8 @@
             <% end %>
           </div>
           <!-- /Logo -->
-          <h4 class="mb-1">Sign Up</h4><hr/>
+          <h4 class="mb-1">Sign Up 👋</h4>
+          <p class="mb-6">Please create your account.</p>
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), id: "formAuthentication", class: 'mb-6') do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
@@ -40,15 +43,6 @@
               </div>
             </div>
 
-            <div class="my-7">
-              <div class="form-check mb-0">
-                <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                <label class="form-check-label" for="terms-conditions">
-                  I agree to
-                  <a href="javascript:void(0);">privacy policy & terms</a>
-                </label>
-              </div>
-            </div>
             <%= f.submit 'Sign Up', class: 'btn btn-primary d-grid w-100 mb-6' %>
           <% end %>
 
@@ -64,3 +58,5 @@
     </div>
   </div>
 </div>
+
+<!-- / Content -->
