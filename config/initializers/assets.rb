@@ -13,10 +13,10 @@ Rails.application.config.assets.precompile << "bootstrap.bundle.min.js"
 # Add vendor CSS/JS files needed
 # Add the main vendor assets directory to the load path
 # Make sure this line is present and not duplicated
-Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets')
+Rails.application.config.assets.paths << Rails.root.join("vendor", "assets")
 
 # You might still need specific paths for things like fonts if they aren't found automatically
-Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'vendor', 'bootstrap-icons', 'fonts ')
+Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "vendor", "bootstrap-icons", "fonts ")
 
 # Add vendor CSS/JS files needed
 Rails.application.config.assets.precompile += %w[

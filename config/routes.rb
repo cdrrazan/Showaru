@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :sites
   resources :homes
   resources :subscriptions
-  resources :dashboards, path: 'dashboard'
+  resources :dashboards, path: "dashboard"
   resources :accounts
   resources :settings
   devise_for :users
