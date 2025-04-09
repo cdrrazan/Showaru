@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Launch settings" %>
+
+<h1>Launch settings</h1>
+
+<div id="launch_settings">
+  <% @launch_settings.each do |launch_setting| %>
+    <%= render launch_setting %>
+    <p>
+      <%= link_to "Show this launch setting", launch_setting %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New launch setting", new_launch_setting_path %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @launch_setting %>
+
+<div>
+  <%= link_to "Edit this launch setting", edit_launch_setting_path(@launch_setting) %> |
+  <%= link_to "Back to launch settings", launch_settings_path %>
+
+  <%= button_to "Destroy this launch setting", @launch_setting, method: :delete %>
+</div>

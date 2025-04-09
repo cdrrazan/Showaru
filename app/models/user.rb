@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :account
-  has_one :dashboard
-  has_one :subscription
-  has_many :projects
+  has_many :teams
+  has_many :workspaces
+  has_many :sites, through: :workspaces
+  has_many :links, through: :workspaces
 end

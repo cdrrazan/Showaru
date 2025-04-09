@@ -1,0 +1,2 @@
+module LaunchSettingsHelper
+end

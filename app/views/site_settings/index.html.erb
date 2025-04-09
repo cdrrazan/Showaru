@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Site settings" %>
+
+<h1>Site settings</h1>
+
+<div id="site_settings">
+  <% @site_settings.each do |site_setting| %>
+    <%= render site_setting %>
+    <p>
+      <%= link_to "Show this site setting", site_setting %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New site setting", new_site_setting_path %>

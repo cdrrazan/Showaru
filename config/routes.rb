@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  resources :site_settings
+  resources :workspaces
+  resources :teams
+  resources :launch_settings
+  resources :links
+  resources :sites
   resources :homes
   resources :subscriptions
   resources :dashboards, path: 'dashboard'
   resources :accounts
   resources :settings
-  resources :projects
   devise_for :users
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -1,0 +1,17 @@
+<%= form_with(model: launch_setting) do |form| %>
+  <% if launch_setting.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(launch_setting.errors.count, "error") %> prohibited this launch_setting from being saved:</h2>
+
+      <ul>
+        <% launch_setting.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
