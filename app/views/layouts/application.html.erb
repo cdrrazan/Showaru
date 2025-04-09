@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="layout-menu-fixed layout-compact">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -22,33 +22,38 @@
 
   <%# Include application.css if you have app-specific styles %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "alt/assets/vendor/css/core.css", media: "all", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "alt/assets/css/demo.css", media: "all", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "alt/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css", media: "all", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "alt/assets/vendor/libs/apex-charts/apex-charts.css", media: "all", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "alt/assets/vendor/fonts/iconify-icons.css", media: "all", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "alt/assets/vendor/css/pages/page-auth.css", media: "all", "data-turbo-track": "reload" %>
+
   <%# Include application.js for Rails-specific JS (e.g., Turbo, Stimulus) %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  <%= render partial: 'layouts/shared/app/assets' %>
+  <%= javascript_include_tag "alt/assets/vendor/js/helpers.js", media: "all", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "alt/assets/js/config.js", media: "all", "data-turbo-track": "reload" %>
 </head>
 
 <%# Use content_for to set body class from views %>
 <body class="<%= content_for?(:body_class) ? yield(:body_class) : '' %>">
+  <%# Flash messages for notices/alerts %>
+  <%= render partial: 'layouts/shared/flash' %>
 
-<% if !user_signed_in? %>
-  <main class="main">
-    <%# Flash messages for notices/alerts %>
-    <%= render partial: 'layouts/shared/flash' %>
-    <%= yield %><%# Renders the content from the specific view file %>
-    <%= render partial: 'layouts/shared/app/footer' %>
-  </main>
-<% else %>
-  <%# Render the sidebar and main content for signed-in users %>
-  <div id="app">
-    <%#= render partial: 'layouts/shared/app/sidebar' %>
+  <%# Main Content %>
+  <%= yield %>
 
-      <%# Main Content %>
-      <%= yield %>
+  <%= render partial: 'layouts/shared/footer' %>
 
-      <%= render partial: 'layouts/shared/app/footer' %>
-<!--    </div>-->
-  </div>
-<% end %>
+  <%= javascript_include_tag "alt/assets/js/main.js", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "alt/assets/js/dashboards-analytics.js", "data-turbo-track": "reload", defer: true %>
 
+  <!-- Vendor JS -->
+  <%= javascript_include_tag "alt/assets/vendor/libs/jquery/jquery.js", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "alt/assets/vendor/libs/popper/popper.js", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "alt/assets/vendor/js/bootstrap.js", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "alt/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "alt/assets/vendor/js/menu.js", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "alt/assets/vendor/libs/apex-charts/apexcharts.js", "data-turbo-track": "reload", defer: true %>
 </body>
 </html>
