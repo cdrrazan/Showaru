@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  # Root path for unauthenticated users
+  unauthenticated :user do
+    root to: "homes#index", as: :unauthenticated_root
+  end
+
+  # Root path for authenticated users
+  authenticated :user do
+    root to: "dashboards#index", as: :authenticated_root
+  end
+
   resources :site_settings
   resources :workspaces
   resources :teams
@@ -21,7 +31,4 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  root "homes#index"
 end

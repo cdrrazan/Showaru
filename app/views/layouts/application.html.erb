@@ -70,6 +70,9 @@
       </div>
     </div>
   <% else %>
+    <%# Flash messages for notices/alerts %>
+    <%= render partial: 'layouts/shared/flash' %>
+
     <%= yield %>
   <% end %>
 
