@@ -37,13 +37,41 @@
 
 <%# Use content_for to set body class from views %>
 <body class="<%= content_for?(:body_class) ? yield(:body_class) : '' %>">
-  <%# Flash messages for notices/alerts %>
-  <%= render partial: 'layouts/shared/flash' %>
+  <% if user_signed_in? %>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
 
-  <%# Main Content %>
-  <%= yield %>
+        <!-- Menu -->
+        <%= render 'layouts/shared/sidebar' %>
+        <!-- / Menu -->
 
-  <%= render partial: 'layouts/shared/footer' %>
+        <!-- Layout container -->
+        <div class="layout-page">
+          <%# Flash messages for notices/alerts %>
+          <%= render partial: 'layouts/shared/flash' %>
+
+          <!-- Navbar -->
+          <%= render 'layouts/shared/navbar' %>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+
+            <%# Main Content %>
+            <%= yield %>
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+      </div>
+    </div>
+  <% else %>
+    <%= yield %>
+  <% end %>
 
   <%= javascript_include_tag "alt/assets/js/main.js", "data-turbo-track": "reload", defer: true %>
   <%= javascript_include_tag "alt/assets/js/dashboards-analytics.js", "data-turbo-track": "reload", defer: true %>
