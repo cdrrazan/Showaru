@@ -12,25 +12,37 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <!-- TODO - Fix these images -->
+  <!-- Favicon --><!-- TODO - Fix these images -->
   <%#= favicon_link_tag 'img/favicon.png' %>
   <%#= favicon_link_tag 'img/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
 
+  <%# Include application.css if you have app-specific styles %>
+  <%# Include application.js for Rails-specific JS (e.g., Turbo, Stimulus) %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <%= stylesheet_link_tag "alt/assets/vendor/fonts/iconify-icons.css", media: "all", "data-turbo-track": "reload" %>
 
-  <%# Include application.css if you have app-specific styles %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <!-- Core CSS -->
+  <!-- build:css assets/vendor/css/theme.css  -->
   <%= stylesheet_link_tag "alt/assets/vendor/css/core.css", media: "all", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag "alt/assets/css/demo.css", media: "all", "data-turbo-track": "reload" %>
+
+  <!-- Vendors CSS -->
   <%= stylesheet_link_tag "alt/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css", media: "all", "data-turbo-track": "reload" %>
+
+  <!-- endbuild -->
   <%= stylesheet_link_tag "alt/assets/vendor/libs/apex-charts/apex-charts.css", media: "all", "data-turbo-track": "reload" %>
-  <%= stylesheet_link_tag "alt/assets/vendor/fonts/iconify-icons.css", media: "all", "data-turbo-track": "reload" %>
+
+  <!-- Page CSS -->
+  <!-- Page -->
   <%= stylesheet_link_tag "alt/assets/vendor/css/pages/page-auth.css", media: "all", "data-turbo-track": "reload" %>
 
-  <%# Include application.js for Rails-specific JS (e.g., Turbo, Stimulus) %>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <!-- Helpers -->
   <%= javascript_include_tag "alt/assets/vendor/js/helpers.js", media: "all", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "alt/assets/js/config.js", media: "all", "data-turbo-track": "reload" %>
 </head>
@@ -76,15 +88,22 @@
     <%= yield %>
   <% end %>
 
-  <%= javascript_include_tag "alt/assets/js/main.js", "data-turbo-track": "reload", defer: true %>
-  <%= javascript_include_tag "alt/assets/js/dashboards-analytics.js", "data-turbo-track": "reload", defer: true %>
-
   <!-- Vendor JS -->
+  <!-- Core JS -->
   <%= javascript_include_tag "alt/assets/vendor/libs/jquery/jquery.js", "data-turbo-track": "reload", defer: true %>
   <%= javascript_include_tag "alt/assets/vendor/libs/popper/popper.js", "data-turbo-track": "reload", defer: true %>
   <%= javascript_include_tag "alt/assets/vendor/js/bootstrap.js", "data-turbo-track": "reload", defer: true %>
   <%= javascript_include_tag "alt/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js", "data-turbo-track": "reload", defer: true %>
   <%= javascript_include_tag "alt/assets/vendor/js/menu.js", "data-turbo-track": "reload", defer: true %>
+
+  <!-- endbuild -->
+  <!-- Vendors JS -->
   <%= javascript_include_tag "alt/assets/vendor/libs/apex-charts/apexcharts.js", "data-turbo-track": "reload", defer: true %>
+
+  <!-- Main JS -->
+  <%= javascript_include_tag "alt/assets/js/main.js", "data-turbo-track": "reload", defer: true %>
+
+  <!-- Page JS -->
+  <%= javascript_include_tag "alt/assets/js/dashboards-analytics.js", "data-turbo-track": "reload", defer: true %>
 </body>
 </html>
